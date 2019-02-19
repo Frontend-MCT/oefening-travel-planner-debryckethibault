@@ -38,6 +38,17 @@ OBJECTS
     display: grid;
     gap: calc(var(--gutter)*2);
 }
+
+.o-hide{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
 /*
 
 COMPONENTS
@@ -113,6 +124,41 @@ COMPONENTS
 .c-content{
     height: 100vh;
     overflow-x: auto;
+    padding: var(--gutter) calc(var(--gutter)*2) var(--gutter) 0;
+    box-sizing: border-box;
+}
+
+.c-country{
+    display: block;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.c-country-input:checked + .c-country{
+    opacity: .6;
+}
+
+.c-country-header{
+    display: flex;
+    align-items: flex-start;
+}
+
+.c-country-header__name{
+    font-size: 1.2rem;
+    margin:  0;
+}
+
+.c-country-header__flag{
+    display: block;
+    height: 15px;
+    border-radius: 4px;
+    margin-left: calc(var(--gutter)/2)
+
+}
+
+.c-country__native-name{
+    opacity: .6;
+    margin: 0;
 }
 
 /*
@@ -124,6 +170,11 @@ UTILITIES
 .u-grid-main-layout{
     grid-template-columns: 350px 1fr;
     min-height: 100vh;
+}
+
+
+.u-grid-overview{
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .u-color-alpha{
